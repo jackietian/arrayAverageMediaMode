@@ -1,23 +1,30 @@
-const round = require('./round');
-
+/**
+ * this function calculates the modes of the array
+ * @param array[]
+ */
 const mode = (list) => {
+    // format the list to map: {item: quantity, ...}
     const map = {};
     list.forEach(item => {
         map[item] = (map[item] || 0) + 1;
     })
-    let count = 0;
-    let mode = [];
+
+    // find the biggest quantity
+    let quantity = 0;
+    let modes = [];
     for (let prop in map) {
-        if (map[prop] >= count) {
-            count = map[prop];
+        if (map[prop] >= quantity) {
+            quantity = map[prop];
         }
     }
+
+    // find the item by quantity
     for (let prop in map) {
-        if (map[prop] === count) {
-            mode.push(parseFloat(prop));
+        if (map[prop] === quantity) {
+            modes.push(parseFloat(prop));
         }
     }
-    return mode;
+    return modes;
 }
 
 module.exports = mode;
