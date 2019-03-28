@@ -1,6 +1,8 @@
 const round = require('./round');
 
 const median = (list) => {
+    if (list.length === 0) return 0;
+    
     list.sort();
     const size = list.length;
     if (size % 2 !== 0) {

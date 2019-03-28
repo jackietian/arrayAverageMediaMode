@@ -3,15 +3,18 @@ const average = require('./src/average');
 const median = require('./src/median');
 const mode = require('./src/mode');
 
-const calc = () => {
+const calc = (data) => {
+    /**
+     * #1. format the input to a map { a: [temperature1, temperature2], b: [temperature1, temperature2], ...}
+     */
     let map = {};
     data.forEach(item => {
-        if (map[item.id]) {
-            map[item.id].push(item.temperature);
-        } else {
-            map[item.id] = [item.temperature];
-        }
+        map[item.id] = map[item.id] ? [...map[item.id], item.temperature] : [item.temperature];
     });
+
+    /**
+     * #2. format the map to the desired result
+     */
     let result = [];
     Object.keys(map).forEach(key => {
         const temperatureList = map[key];
@@ -25,6 +28,6 @@ const calc = () => {
     return result;
 }
 
-console.log(calc());
+console.log(calc(data));
 
 module.exports = calc;

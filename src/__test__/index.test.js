@@ -1,4 +1,5 @@
 const calc = require('../../index');
+const data = require('../../data/data');
 
 it('test main function', () => {
     const expctedResult = [{
@@ -22,5 +23,5 @@ it('test main function', () => {
     ];
 
     const comparator = (a, b) => a.id < b.id;
-    expect(calc().sort(comparator)).toEqual(expctedResult.sort(comparator));;
+    expect(calc(data).sort(comparator)).toEqual(expctedResult.sort(comparator));;
 })
