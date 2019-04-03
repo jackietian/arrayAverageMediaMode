@@ -15,17 +15,12 @@ const calc = (data) => {
     /**
      * #2. format the map to the desired result
      */
-    let result = [];
-    Object.keys(map).forEach(key => {
-        const temperatureList = map[key];
-        result.push({
+    return Object.keys(map).map(key => ({
             id: key,
-            average: average(temperatureList),
-            median: median(temperatureList),
-            mode: mode(temperatureList),
-        });
-    })
-    return result;
+            average: average(map[key]),
+            median: median(map[key]),
+            mode: mode(map[key]),
+    }));
 }
 
 console.log(calc(data));
