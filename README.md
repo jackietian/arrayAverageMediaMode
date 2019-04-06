@@ -1,4 +1,4 @@
-# SafeyCulture code test
+# Find average, median and mode of an Array
 
 ## setup
 ```
